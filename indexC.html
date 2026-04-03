@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - FLEX</title>
+
+    <!-- CSS EXTERNO -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body style="display: grid; height: 100vh; align-content: space-between;">
+    <div style="justify-content: space-between;"> <!-- Primeira Linha -->
+        <div style="flex-direction: column; justify-content: space-between; align-items: center;" class="quadrado-pai">
+            <div class="quadrado-filho"></div>
+            <div class="quadrado-filho"></div>
+        </div>
+
+        <div style="justify-content: center; align-items: center;" class="quadrado-pai">
+            <div class="quadrado-filho"></div>
+        </div>
+
+        <div style="justify-content: space-between;" class="quadrado-pai">
+            <div style="justify-content: start; align-items: start;">
+                <div class="quadrado-filho"></div>
+            </div>
+            
+            <div style="justify-content: end; align-items: end;">
+                <div class="quadrado-filho"></div>
+            </div>
+        </div>
+
+        <div style="justify-content: center; align-items: end;" class="quadrado-pai">
+            <div class="quadrado-filho"></div>
+        </div>
+    </div>
+
+    <div style="justify-content: space-between;"> <!-- Segunda Linha -->
+        <div style="justify-content: center;" class="quadrado-pai">
+            <div class="quadrado-filho"></div>
+        </div>
+
+        <div class="quadrado-pai">
+            <div style="align-items: center;">
+                <div class="quadrado-filho"></div>
+            </div>
+
+            <div style="flex-direction: column; justify-content: space-between;">
+                <div class="quadrado-filho"></div>
+                <div class="quadrado-filho"></div>
+            </div>
+
+            <div style="align-items: center;">
+                <div class="quadrado-filho"></div>
+            </div>
+        </div>
+        
+        <div style="justify-content: center; padding: 15px;" class="quadrado-pai">
+            <div class="quadrado-filho"></div>
+        </div>
+    </div>
+
+    <div style="justify-content:  space-between;"> <!-- Terceira Linha -->
+        <div style="justify-content: space-between;" class="quadrado-pai">
+            <div style="justify-content: start; align-items: end;">
+                <div class="quadrado-filho"></div>
+            </div>
+
+            <div style="align-items: start;">
+                <div class="quadrado-filho"></div>
+            </div>
+        </div>
+
+        <div style="align-items: center; justify-content: center;" class="quadrado-pai">
+            <div class="quadrado-filho"></div>
+        </div>
+
+        <div style="justify-content: end" class="quadrado-pai">
+            <div class="quadrado-filho"></div>
+        </div>
+    </div>
+</body>
+</html>

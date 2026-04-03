@@ -1,0 +1,55 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+div{
+    display: flex;
+}
+
+.main_line{
+    width: 100%;
+    height: 33.33vh;
+}
+
+.big_square{
+    width: 200px;
+    height: 200px;
+}
+
+.one_third_line{
+    width: 100%;
+    height: 33.33%;
+}
+
+.yellow_back {
+    background-color: yellow;
+}
+
+.pink_back{
+    background-color: palevioletred;
+}
+
+.red_back{
+    background-color: red;
+}
+
+.white_back {
+    background-color: white;
+}
+
+.small_square{
+    width: 50px;
+    height: 50px;
+}
+
+.entire{
+    width: 50%;
+    height: 100%;
+}
+
+.circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}

@@ -1,0 +1,10 @@
+git clone (link)
+git pull
+
+git checkout -b (nome) #Cria Branch
+
+git add .
+git commit -m (mensagem em string)
+git push
+
+# Gerenciador de Credencias para mudar as credenciais do GIT

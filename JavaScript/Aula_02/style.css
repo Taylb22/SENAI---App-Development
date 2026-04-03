@@ -1,0 +1,10 @@
+.imgfix{
+    height: 50vh;
+    width: 100%;
+}
+
+.square{
+    height: 200px;
+    width: 200px;
+    background-color: black;
+}

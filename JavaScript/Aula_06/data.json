@@ -1,0 +1,6 @@
+[
+    {"id" : 0, "name" : "Diego Schueda", "salary" : 1600, "parents" : {
+                                                                    "father" : "Bleh",
+                                                                    "mother" : "Blah"
+                                                                                    }}
+]

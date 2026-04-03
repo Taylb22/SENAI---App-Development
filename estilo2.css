@@ -1,0 +1,25 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+div{
+    display: flex
+}
+
+.quadrado-pai {
+    background-color: blue;
+    height: 300px;
+    width: 300px;
+    display: flex;
+}
+
+.quadrado-filho {
+    background-color: orange;
+    height: 100px;
+    width: 100px;
+}
+
+#margenzinha {
+    margin-bottom: 15px;
+}
