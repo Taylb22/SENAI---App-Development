@@ -37,8 +37,8 @@ router
         let idx = req.params
         idx = parseInt(idx["id"])
         try{
-            users = users.splice(idx, 1)
-            return res.status(200).send({delete : "User deleted sucesfully"})
+            users.splice(idx, 1)
+            return res.status(200).send({delete : `User deleted sucesfully ${idx}`})
         }
         catch{
             return res.status(500).send({error : "Internal server error"})
