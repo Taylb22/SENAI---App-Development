@@ -1,12 +1,14 @@
-var users = ["Diego", "Erich", "Cayque", "Lunim", "Henrique"]
+import { response } from "express"
+import connection from "../database/db.js"
 
 export default class userController {
     static getUsers(req, res) {
-        try{
-            return res.status(200).send(users)
-        }catch{
-            return res.status(500).send({error : "internal server error"})
-        }
+        connection.query(`SELECT  * FROM tb_user`, (err, results) => {
+            if (err) {
+                return res.status(500).send({error : "Internal server error"})
+            }
+            res.status(200).send(results)
+        })
     }
 
     static postUser(req, res) {
