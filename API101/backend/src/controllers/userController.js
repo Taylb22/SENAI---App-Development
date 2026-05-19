@@ -5,55 +5,78 @@ export default class userController {
     static getUsers(req, res) {
         connection.query(`SELECT  * FROM tb_user`, (err, results) => {
             if (err) {
-                return res.status(500).send({error : "Internal server error"})
+                return res.status(500).send({error : 
+                    
+                    "Internal server error"})
             }
             res.status(200).send(results)
         })
     }
 
     static postUser(req, res) {
-        const {name, lastname} = req.body
-        try{
-            users.push({name : name, lastname : lastname})
-            return res.status(200).send({sucess : `The user ${name} ${lastname} was registered sucessfully`})
-        }catch{
-            return res.status(500).send({error : "Internal server error..."})
-        }
+        const {name, password, email} = req.body
+        
+        connection.query(`INSERT INTO tb_user VALUES (default, ?, ?, ?)`,
+            [name, password, email], (err, results) => {
+                if (err) {
+                    return res.status(500).send({
+                        error : "Internal server error"
+                    })
+                }
+                res.status(200).send(results)
+            }
+        )
     }
 
     static updateUser(req, res) {
         let idx = req.params
         idx = parseInt(idx["id"])
 
-        if (idx < 0 || idx >= users.length || isNaN(idx)) {
+        if (idx <= 0 || isNaN(idx)) {
             return res.status(400).send({error : `Provided invalid index...`})
         }
 
-        const {name, lastname} =  req.body
-        try{
-            users[idx] = {
-                name : name,
-                lastname : lastname
+        const {name, password, email} =  req.body
+        connection.query(`UPDATE tb_user 
+                        SET
+                        name = ?,
+                        password = ?,
+                        email = ?
+                        WHERE id = ?`,
+            [name, password, email, idx], (err, response) => {
+                if(err) {
+                    return res.status(500).send({
+                        error : "Internal server error"
+                    })
+                }
+
+                return res.status(200).send({
+                    sucess : "User updated sucesfully"
+                })
             }
-            return res.status(200).send({sucess : `The user was updated sucessfully`})
-        }catch{
-            return res.status(500).send({error : `Internal server error...`})
-        }
+        )
     }
 
     static deleteUser(req, res) {
         let idx = req.params
         idx = parseInt(idx["id"])
 
-        if (idx < 0 || idx >= users.length || isNaN(idx)) {
+        if (idx <= 0 || isNaN(idx)) {
             return res.status(400).send({error : "Provided invalid index..."})
         }
 
-        try{
-            users.splice(idx, 1)
-            return res.status(200).send({sucess : "The user was deleted sucessfully"})
-        }catch{
-            return res.status(500).send({error : "Internal server error..."})
-        }
+        connection.query(`DELETE FROM tb_user
+                        WHERE id = ?`,
+            [idx], (err, response) => {
+                if (err) {
+                    return res.status(500).send({
+                        error : "Internal server error"
+                    })
+                }
+
+                return res.status(200).send({
+                    sucess : "User deleted sucesfully"
+                })
+            })
     }
 }
