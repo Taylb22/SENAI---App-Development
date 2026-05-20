@@ -45,20 +45,16 @@ export function update (req, res) {
         })
     }
     
-    const {name, code, supplier,
-           qty, price, stock} = req.body
+    const {qty, price, stock} = req.body
 
     connection.query(`UPDATE tb_estoque
                     SET
-                    nome_peca = ?,
-                    codigo_peca = ?,
-                    fornecedor = ?,
                     quantidade = ?,
                     preco_unitario = ?,
                     estoque = ?
                     WHERE
                     id = ?`,
-        [name, code, supplier, qty, price, stock, id],
+        [qty, price, stock, id],
         (err, response) => {
             if (err) {
                 return res.status(500).send({

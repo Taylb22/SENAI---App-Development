@@ -1,12 +1,14 @@
 import express, {response, Router} from "express"
-import {view, register, update, erase} from "../../controllers/inventoryController.js"
+import * as control from "../../controllers/inventoryController.js"
+import * as middle from "../../middleware/inventoryMiddleware.js"
 
 const router = express.Router()
 
 router
-    .get('/', view)
-    .post("/register", register)
-    .put("/update/:id", update)
-    .delete("/delete/:id", erase)
+    .get('/', control.view)
+    .get('/:id', middle.validateGetPecaById) //COlocar a funcao do endpoint
+    .post("/register", middle.validateCreatePeca, control.register)
+    .put("/update/:id", middle.validateUpdatePeca, control.update)
+    .delete("/delete/:id", middle.validateDeletePeca, control.erase)
 
 export default router
