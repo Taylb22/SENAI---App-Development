@@ -15,6 +15,21 @@ export function view (req, res) {
     )
 }
 
+export function viewById (req, res) {
+    let {id} = req.params
+    id = parseInt(id)
+
+    connection.query(`SELECT * FROM tb_estoque WHERE id = ?`,
+                    [id], (err, response) => {
+                        if (err) {
+                            return res.status(500).send({
+                                error : "Internal server error"
+                            })
+                        }
+                        return res.status(200).send(response)
+                    })
+}
+
 export function register (req, res) {
     const {name, code, supplier,
            qty, price, stock} = req.body

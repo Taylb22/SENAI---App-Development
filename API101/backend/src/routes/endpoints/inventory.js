@@ -6,7 +6,7 @@ const router = express.Router()
 
 router
     .get('/', control.view)
-    .get('/:id', middle.validateGetPecaById) //COlocar a funcao do endpoint
+    .get('/:id', middle.validateGetPecaById, control.viewById) //COlocar a funcao do endpoint
     .post("/register", middle.validateCreatePeca, control.register)
     .put("/update/:id", middle.validateUpdatePeca, control.update)
     .delete("/delete/:id", middle.validateDeletePeca, control.erase)

@@ -42,7 +42,8 @@ export function validateCreatePeca(req, res, next) {
 }
 
 export function validateGetPecaById(req, res, next) {
-    const {id} = req.params
+    let {id} = req.params
+    id = parseInt(id)
 
     if (!id || !Number.isInteger(id) || id <= 0) {
         return res.status(400).send({
